@@ -1,16 +1,23 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
-export default defineConfig({
-	plugins: [react()],
-	resolve: {
-		alias: {
-			'@/': `${__dirname}/src/`,
-			'~/': `${__dirname}/public/`,
+export default defineConfig(({ command, mode }) => {
+	const env = loadEnv(mode, process.cwd(), '');
+
+	return {
+		plugins: [react()],
+		resolve: {
+			alias: {
+				'@/': `${__dirname}/src/`,
+				'~/': `${__dirname}/public/`,
+			},
 		},
-	},
-	server: {
-		open: true,
-	},
+		server: {
+			open: true,
+		},
+		define: {
+			__APP_ENV__: env.APP_ENV,
+		},
+	};
 });
