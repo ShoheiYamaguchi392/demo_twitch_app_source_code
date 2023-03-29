@@ -11,6 +11,11 @@
 		"build-storybook": "build-storybook",
 		"test": "jest --no-watchman"
 	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn lint-staged && yarn test"
+		}
+	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
 			"eslint --fix",
