@@ -15,7 +15,7 @@
 		"format": "yarn lint && yarn prettier --write 'src/**/*.{js,jsx,ts,tsx,scss}'"
 	},
 	"simple-git-hooks": {
-		"pre-commit": "yarn test"
+		"pre-commit": "yarn lint-staged && yarn test"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
