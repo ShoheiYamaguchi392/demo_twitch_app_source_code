@@ -19,15 +19,11 @@ jobs:
     name: E2E on Chrome
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '18.15.0'
-      - run: yarn install
       - uses: cypress-io/github-action@v5
         with:
           browser: chrome
           env: VITE_TWITCH_CLIENT_ID=${{secrets.VITE_TWITCH_CLIENT_ID}},VITE_TWITCH_TOKEN=${{secrets.VITE_TWITCH_TOKEN}}
-          build: yarn build
+          build: yarn install && yarn build
           start: npx http-server ./dist --port 3000
 
 
