@@ -1,4 +1,4 @@
 export const sum = (a: number, b: number) => {
-	console.log('haai');
+	console.log('hai');
 	return a + b;
 };
