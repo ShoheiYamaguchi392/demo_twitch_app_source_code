@@ -23,8 +23,7 @@ jobs:
         with:
           browser: chrome
           env: VITE_TWITCH_CLIENT_ID=${{secrets.VITE_TWITCH_CLIENT_ID}},VITE_TWITCH_TOKEN=${{secrets.VITE_TWITCH_TOKEN}}
-          build: yarn start-server-and-test dev http-get://localhost:3000
-          wait-on: 'http://127.0.0.1:3000'
+          build: npm build
 
 
 
