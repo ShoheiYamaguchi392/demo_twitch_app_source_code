@@ -9,6 +9,8 @@ type gameList = {
 	imageUrl: string;
 }[];
 
+const MaxFetchLength = 10;
+
 const useTop = () => {
 	const [gameList, setGameList] = useState<gameList>([]);
 	const [paginationCursor, setPaginationCursor] = useState<string | null>(null);

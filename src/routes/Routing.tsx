@@ -6,7 +6,8 @@ const Routing: React.FC<object> = () => {
 	return (
 		<Routes>
 			<Route path="/" element={<Top />} />
-			<Route path="/channel" element={<>channel</>} />
+			{/* [TODO]チャンネルごとのページを作成 */}
+			{/* <Route path="/channel" element={<>channel</>} /> */}
 			<Route path="/404" element={<>404</>} />
 			<Route path="*" element={<Navigate to="/404" replace={true} />} />
 		</Routes>

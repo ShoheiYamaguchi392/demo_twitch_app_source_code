@@ -14,6 +14,9 @@ module.exports = {
 		'prettier',
 	],
 	parser: '@typescript-eslint/parser',
+	globals: {
+		window: true,
+	},
 	rules: {
 		'import/order': [
 			'warn',

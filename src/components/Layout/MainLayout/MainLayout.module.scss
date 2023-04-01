@@ -6,4 +6,8 @@
 
 .main-content-wrapper {
 	flex-grow: 1;
+	width: 100%;
+	max-width: $wrapper-max-width;
+	padding: 16px $content-horizontal-padding;
+	margin: 0 auto;
 }
