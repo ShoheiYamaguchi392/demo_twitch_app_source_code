@@ -65,7 +65,7 @@ export const useApi = <T = unknown, D = unknown>(
 
 	const api = useMemo(() => {
 		return {
-			get: (path: string, params: D, config: AxiosRequestConfig<D> = {}) =>
+			get: (path: string, params?: D, config: AxiosRequestConfig<D> = {}) =>
 				callApi(
 					async () => await axiosInstance.get(path, { params, ...config })
 				),
