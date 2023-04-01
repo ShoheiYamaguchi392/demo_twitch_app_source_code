@@ -1,14 +1,13 @@
 import { Card as MuiCard, CardProps } from '@mui/material';
-import { forwardRef } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 
-const Card = forwardRef<HTMLDivElement, CardProps>(
-	({ children, ...otherProps }, ref) => {
-		return (
-			<MuiCard ref={ref} {...otherProps}>
-				{children}
-			</MuiCard>
-		);
-	}
-);
+const Card = (props: CardProps, ref: any) => {
+	const { children, ...otherProps } = props;
+	return (
+		<MuiCard ref={ref} {...otherProps}>
+			{children}
+		</MuiCard>
+	);
+};
 
-export default Card;
+export default forwardRef(Card);

@@ -7,7 +7,14 @@ export type TopGamesResDataType = {
 
 export type TopGamesResType = {
 	data: TopGamesResDataType[];
-	pagination: {
-		cursor: string;
-	};
+	pagination:
+		| {
+				cursor: string;
+		  }
+		| undefined;
+};
+
+export type TopGamesParamsType = {
+	first: number;
+	after?: string;
 };
