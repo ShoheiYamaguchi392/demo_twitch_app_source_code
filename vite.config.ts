@@ -20,5 +20,12 @@ export default defineConfig(({ command, mode }) => {
 		define: {
 			__APP_ENV__: env.APP_ENV,
 		},
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: `@use '@/styles/variables.scss' as *;`,
+				},
+			},
+		},
 	};
 });
