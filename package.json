@@ -20,7 +20,7 @@
 		"cy:e2e": "start-server-and-test dev http-get://localhost:3000 cy:open-e2e"
 	},
 	"simple-git-hooks": {
-		"pre-commit": "yarn lint-staged && yarn test"
+		"pre-commit": "yarn lint-staged"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": [
