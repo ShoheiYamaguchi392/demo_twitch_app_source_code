@@ -7,3 +7,10 @@ $color-white: #ffffff;
 
 // other colors
 $theme-twitch: #6441a5;
+
+// layout
+$content-max-width: 1000px;
+$content-horizontal-padding: 16px;
+$wrapper-max-width: calc(
+	$content-max-width + ($content-horizontal-padding * 2)
+);
