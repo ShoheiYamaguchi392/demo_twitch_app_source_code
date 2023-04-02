@@ -4,6 +4,8 @@
 
 type propsType = {
 	gameName?: string;
+	streamId?: string;
+	userName?: string;
 };
 
 export const getTwitchPages = (props: propsType = {}) => {
@@ -11,5 +13,6 @@ export const getTwitchPages = (props: propsType = {}) => {
 
 	return {
 		game: `${top}/directory/game/${props.gameName}`,
+		streamOnLive: `${top}/${props.userName}`,
 	};
 };

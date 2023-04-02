@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useInRouterContext } from 'react-router-dom';
 
 import { useApi } from '@/hooks/useApi';
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
@@ -15,7 +14,7 @@ type gameList = {
 	imageUrl: string;
 }[];
 
-const MaxFetchLength = 10;
+const MaxFetchLength = 20;
 
 const useTop = () => {
 	const [gameList, setGameList] = useState<gameList>([]);

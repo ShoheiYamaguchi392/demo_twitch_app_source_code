@@ -2,6 +2,8 @@
 	height: 40px;
 	position: sticky;
 	top: 0;
+	background-color: $background-surface;
+	z-index: 500;
 }
 
 .inner-wrapper {

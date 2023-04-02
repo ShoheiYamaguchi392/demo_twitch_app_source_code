@@ -13,7 +13,8 @@
 
 .game-image-wrapper {
 	display: block;
-	width: 400px;
+	width: 200px;
+	flex-shrink: 0;
 }
 .game-image {
 	width: 100%;
@@ -22,10 +23,28 @@
 }
 
 .game-info-wrapper {
+	flex-grow: 1;
+	min-width: 0;
 }
 
 .game-name {
 	color: $color-white;
 	font-size: 1.2rem;
 	text-decoration: none;
+}
+
+.accordion {
+	width: 100%;
+	margin-top: 16px !important;
+	background-color: $background-secondary;
+}
+
+.accordion-summary {
+	width: 100%;
+	color: $color-white;
+}
+
+.expand-more-icon {
+	width: 100%;
+	color: $color-white;
 }
