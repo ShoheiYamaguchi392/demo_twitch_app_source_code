@@ -8,3 +8,11 @@ body {
 	font-family: 'Gill Sans', sans-serif;
 	color: $color-white;
 }
+
+* {
+	box-sizing: border-box;
+}
+
+img {
+	vertical-align: top;
+}
