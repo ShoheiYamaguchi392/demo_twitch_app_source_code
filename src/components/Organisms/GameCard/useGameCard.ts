@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 import { useApi } from '@/hooks/useApi';
 import {
@@ -15,6 +15,7 @@ const MaxFetchLength = 10;
 
 export const useGameCard = (props: propsType) => {
 	const { gameId } = props;
+	const isStreamFetchedRef = useRef<boolean>(false);
 
 	const [streamList, setStreamList] = useState<GetStreamsResDataType[]>([]);
 	const [paginationCursor, setPaginationCursor] = useState<string | undefined>(
@@ -43,21 +44,25 @@ export const useGameCard = (props: propsType) => {
 		},
 	});
 	const fetchStreams = async () => {
-		initialFetchApi.get('streams', {
+		await initialFetchApi.get('streams', {
 			type: 'live',
 			game_id: gameId,
 			first: MaxFetchLength,
 		});
+
+		isStreamFetchedRef.current = true;
 	};
 
-	useEffect(() => {
-		fetchStreams();
-	}, []);
+	// useEffect(() => {
+	// 	fetchStreams();
+	// }, []);
 
 	return {
+		fetchStreams,
 		streamList,
 		loading: {
 			isFetchLoading,
 		},
+		isStreamFetched: isStreamFetchedRef.current,
 	};
 };

@@ -8,6 +8,7 @@ import styles from './GameCard.module.scss';
 import { useGameCard } from './useGameCard';
 
 import Card from '@/components/Atoms/Card';
+import CircularProgress from '@/components/Atoms/CircularProgress/CircularProgress';
 import StreamListItem from '@/components/Molecules/StreamListItem/StreamListItem';
 import { useHideOnOffScreen } from '@/hooks/useHideOnOffScreen';
 import { getTwitchPages } from '@/utils/getTwitchPages';
@@ -23,7 +24,9 @@ type propsType = {
 
 const GameCard = (props: propsType, ref: ForwardedRef<HTMLElement>) => {
 	const { gameInfo, className } = props;
-	const { streamList, loading } = useGameCard({ gameId: gameInfo.id });
+	const { fetchStreams, streamList, loading, isStreamFetched } = useGameCard({
+		gameId: gameInfo.id,
+	});
 	const [isAccordionExpanded, setIsAccordionExpanded] = useState(false);
 
 	const gameUrl = getTwitchPages({
@@ -33,7 +36,10 @@ const GameCard = (props: propsType, ref: ForwardedRef<HTMLElement>) => {
 	const { offScreenRef, height, isElementOffScreen, resetHeight } =
 		useHideOnOffScreen();
 
-	const handleChangeStreamListAccordion = () => {
+	const handleChangeStreamListAccordion = async () => {
+		if (!isStreamFetched) {
+			await fetchStreams();
+		}
 		setIsAccordionExpanded((prevState) => !prevState);
 	};
 
@@ -80,7 +86,11 @@ const GameCard = (props: propsType, ref: ForwardedRef<HTMLElement>) => {
 								<AccordionSummary
 									className={styles['accordion-summary']}
 									expandIcon={
-										<ExpandMoreIcon className={styles['expand-more-icon']} />
+										loading.isFetchLoading ? (
+											<CircularProgress size={10} />
+										) : (
+											<ExpandMoreIcon className={styles['expand-more-icon']} />
+										)
 									}
 								>
 									Streams
