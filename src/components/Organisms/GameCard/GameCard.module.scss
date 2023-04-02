@@ -1,9 +1,12 @@
 .card {
-	display: flex;
 	width: 100%;
-	padding: 16px;
 	background-color: $background-primary;
 	color: $color-white;
+}
+
+.card-inner-wrapper {
+	display: flex;
+	padding: 16px;
 	column-gap: 8px;
 	align-items: flex-start;
 }
@@ -16,6 +19,9 @@
 	width: 100%;
 	object-fit: contain;
 	aspect-ratio: 1 / 1;
+}
+
+.game-info-wrapper {
 }
 
 .game-name {

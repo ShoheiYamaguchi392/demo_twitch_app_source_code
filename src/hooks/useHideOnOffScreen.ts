@@ -1,11 +1,11 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, RefObject } from 'react';
 
 /**
  * 画面外に消えた要素を、高さをそのままに削除するためのフック
  * 無限スクロールによってDOM描写が増えて動作が重くなることを防ぐ
  */
 export const useHideOnOffScreen = () => {
-	const offScreenRef = useRef<HTMLElement | null>(null);
+	const offScreenRef = useRef<HTMLElement>(null);
 	const windowWidthRef = useRef<number | null>(null);
 
 	const [height, setHeight] = useState<number>(0);
@@ -54,7 +54,7 @@ export const useHideOnOffScreen = () => {
 
 const OffScreenMargin = 500;
 
-const isOffScreen = (ref: { current: HTMLElement | null }) => {
+const isOffScreen = (ref: RefObject<HTMLElement>) => {
 	if (!(ref.current instanceof HTMLElement)) return false;
 
 	const rect = ref.current.getBoundingClientRect();

@@ -1,5 +1,7 @@
 import styles from './Top.module.scss';
 
+import Button from '@/components/Atoms/Button/Button';
+import CircularProgress from '@/components/Atoms/CircularProgress/CircularProgress';
 import MainLayout from '@/components/Layout/MainLayout/MainLayout';
 import GameCard from '@/components/Organisms/GameCard/GameCard';
 import useTop from '@/pages/Top/useTop';
@@ -32,11 +34,15 @@ const Top = () => {
 					))}
 				</ol>
 			)}
-			{(loading.isFetchLoading || loading.isNextFetchLoading) && <p>loading</p>}
-			{isFetchNextButtonDisplayed && (
-				<button onClick={fetchNextGames}>load more</button>
+			{(loading.isFetchLoading || loading.isNextFetchLoading) && (
+				<div className={styles['loading-wrapper']}>
+					<CircularProgress />
+				</div>
 			)}
-			{isNoContentDisplayed && <p>loading</p>}
+			{isFetchNextButtonDisplayed && (
+				<Button onClick={fetchNextGames}>load more</Button>
+			)}
+			{isNoContentDisplayed && <p>no content</p>}
 		</MainLayout>
 	);
 };

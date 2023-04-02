@@ -1,5 +1,5 @@
 import { Card as MuiCard, CardProps } from '@mui/material';
-import { ForwardedRef, forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 const Card = (props: CardProps, ref: any) => {
 	const { children, ...otherProps } = props;
