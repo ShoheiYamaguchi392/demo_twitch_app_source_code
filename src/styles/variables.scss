@@ -1,0 +1,17 @@
+// background color
+$background-surface: #121212;
+$background-primary: #1f1b24;
+$background-secondary: #404258;
+
+// text color
+$color-white: #ffffff;
+
+// other colors
+$theme-twitch: #6441a5;
+
+// layout
+$content-max-width: 1000px;
+$content-horizontal-padding: 16px;
+$wrapper-max-width: calc(
+	$content-max-width + ($content-horizontal-padding * 2)
+);

@@ -20,5 +20,13 @@ export default defineConfig(({ command, mode }) => {
 		define: {
 			__APP_ENV__: env.APP_ENV,
 		},
+		// see:@https://qiita.com/nanohanabuttobasu/items/f73ed978cc10d8bcaa59
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: `@use '@/styles/variables.scss' as *;`,
+				},
+			},
+		},
 	};
 });
